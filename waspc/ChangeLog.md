@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.18.2
+
+### 🐞 Bug fixes
+
+- Wasp dev database (`wasp start db`) now uses a pinned PostgreSQL version (`postgres:18`) with the correct volume mount path. ([#3323](https://github.com/wasp-lang/wasp/pull/3323))
+
+## 0.18.1
+
+### 🐞 Bug fixes
+
+- Wasp now pins `@tanstack/react-query` to a patch version instead of a minor version to prevent future package releases from affecting Wasp. ([#3264](https://github.com/wasp-lang/wasp/pull/3264))
+
 ## 0.18.0
 
 ### ⚠️ Breaking Changes

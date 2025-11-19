@@ -100,18 +100,18 @@ generateBaseWaspFile newProjectDetails = ((path, content), planRules)
             "<link rel='icon' href='/favicon.ico' />",
           ],
           client: {
-            rootComponent: import { Layout } from "@src/Layout.jsx",
+            rootComponent: import { Layout } from "@src/Layout",
           },
           ${appAuth}
         }
 
         route LoginRoute { path: "/login", to: LoginPage }
         page LoginPage {
-          component: import Login from "@src/pages/auth/Login.jsx"
+          component: import Login from "@src/pages/auth/Login"
         }
         route SignupRoute { path: "/signup", to: SignupPage }
         page SignupPage {
-          component: import Signup from "@src/pages/auth/Signup.jsx"
+          component: import Signup from "@src/pages/auth/Signup"
         }
       |]
 
@@ -151,12 +151,16 @@ generatePackageJson newProjectDetails =
       {
         "name": "${appName}",
         "type": "module",
+        "workspaces": [
+          ".wasp/build/*",
+          ".wasp/out/*"
+        ],
         "dependencies": {
           "wasp": "file:.wasp/out/sdk/wasp",
           "react": "^18.2.0",
           "react-dom": "^18.2.0",
           "react-router-dom": "^6.26.2",
-          "tailwindcss": "^3.2.7"
+          "tailwindcss": "^3.4.17"
         },
         "devDependencies": {
           "typescript": "5.8.2",
